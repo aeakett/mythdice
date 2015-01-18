@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title></title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="css/animate.min.css">
+   <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+</head>
+<body>
+
+<button id="test">Test</button>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/jquery-timing.min.js"></script>
+<script src="js/jquery.noty.packaged.min.js"></script>
+<script src="js/mythdice_theme.js"></script>
+
+<script>
+   $(function() {
+      FastClick.attach(document.body);
+   });
+
+   function payMight(num) {
+      var n = noty({
+         text        : 'pay '+num+' Might<br><img src="img/fist.svg" style="margin-top: 20px;">',
+         type        : 'alert',
+         maxVisible  : 1,
+         dismissQueue: true,
+         layout      : 'center',
+         theme       : 'mythdice_theme',
+         animation: {
+            open: 'animated fadeInDownBig',
+            close: 'animated fadeOutDownBig'
+         }
+      });
+   }
+   function gainLightning(num) {
+      var n = noty({
+         text        : 'gain '+num+' Lightning<br><img src="img/lightning.svg" style="margin-top: 20px;">',
+         type        : 'alert',
+         maxVisible  : 1,
+         dismissQueue: true,
+         layout      : 'center',
+         theme       : 'mythdice_theme',
+         animation: {
+            open: 'animated fadeInDownBig',
+            close: 'animated fadeOutDownBig'
+         }
+      });
+   }
+
+   $( document ).ready(function() {
+      $('#test').click(function(){
+         /*var n = noty({
+            text        : 'pay 5 Might<br><img src="img/fist.svg" style="margin-top: 20px;">',
+            type        : 'alert',
+            maxVisible  : 1,
+            dismissQueue: true,
+            layout      : 'center',
+            theme       : 'mythdice_theme',
+            animation: {
+               open: 'animated fadeInDownBig',
+               close: 'animated fadeOutDownBig'
+            }
+         });*/
+         payMight(3);
+         gainLightning(13);
+         /*var n = noty({
+            text        : 'gain 27 Lightning<br><img src="img/lightning.svg" style="margin-top: 20px;">',
+            type        : 'warning',
+            maxVisible  : 1,
+            dismissQueue: true,
+            layout      : 'center',
+            theme       : 'mythdice_theme',
+            animation: {
+               open: 'animated fadeInDownBig',
+               close: 'animated fadeOutDownBig'
+            }
+        });*/
+      });
+   });
+</script>
+</body>
+</html>
