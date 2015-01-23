@@ -16,10 +16,6 @@ $.noty.themes.mythdice_theme = {
                     case 'bottomLeft':
                     case 'bottomRight':
                     case 'center':
-                        $(selector).css({borderRadius: '0px 0px 0px 0px'});
-                        $(selector).first().css({'border-top-left-radius': '5px', 'border-top-right-radius': '5px'});
-                        $(selector).last().css({'border-bottom-left-radius': '5px', 'border-bottom-right-radius': '5px'});
-                        break;
                     case 'centerLeft':
                     case 'centerRight':
                     case 'inline':
@@ -52,10 +48,10 @@ $.noty.themes.mythdice_theme = {
     },
     style   : function() {
 
-        /*this.$bar.css({
+        this.$bar.css({
             overflow  : 'hidden',
             background: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAoCAQAAAClM0ndAAAAhklEQVR4AdXO0QrCMBBE0bttkk38/w8WRERpdyjzVOc+HxhIHqJGMQcFFkpYRQotLLSw0IJ5aBdovruMYDA/kT8plF9ZKLFQcgF18hDj1SbQOMlCA4kao0iiXmah7qBWPdxpohsgVZyj7e5I9KcID+EhiDI5gxBYKLBQYKHAQoGFAoEks/YEGHYKB7hFxf0AAAAASUVORK5CYII=') repeat-x scroll left top #fff"
-        });*/
+        });
 
         this.$message.css({
             fontSize  : '13px',
@@ -63,8 +59,11 @@ $.noty.themes.mythdice_theme = {
             textAlign : 'center',
             padding   : '8px 10px 9px',
             width     : 'auto',
-            position  : 'relative'
+            position  : 'relative',
+            fontFamily: 'sans-serif',
+            color     : '#000'
         });
+
         this.$closeButton.css({
             position  : 'absolute',
             top       : 4, right: 4,
@@ -75,7 +74,6 @@ $.noty.themes.mythdice_theme = {
         });
 
         this.$buttons.css({
-
             padding        : 5,
             textAlign      : 'right',
             borderTop      : '1px solid #ccc',
@@ -101,21 +99,38 @@ $.noty.themes.mythdice_theme = {
 
         switch(this.options.layout.name) {
             case 'top':
-            case 'topCenter':
-            case 'center':
-                this.$message.css({
-                    fontSize: '40px',
-                    fontFamily: 'sans-serif'
+                this.$bar.css({
+                    borderRadius: '0px 0px 5px 5px',
+                    borderBottom: '2px solid #eee',
+                    borderLeft  : '2px solid #eee',
+                    borderRight : '2px solid #eee',
+                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
                 });
                 break;
+            case 'topCenter':
+            case 'center':
             case 'bottomCenter':
             case 'inline':
+                this.$bar.css({
+                    borderRadius: '5px',
+                    border      : '1px solid #eee',
+                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
+                });
+                this.$message.css({fontSize: '13px', textAlign: 'center'});
+                break;
             case 'topLeft':
             case 'topRight':
             case 'bottomLeft':
             case 'bottomRight':
             case 'centerLeft':
             case 'centerRight':
+                this.$bar.css({
+                    borderRadius: '5px',
+                    border      : '1px solid #eee',
+                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
+                });
+                this.$message.css({fontSize: '13px', textAlign: 'left'});
+                break;
             case 'bottom':
                 this.$bar.css({
                     borderRadius: '5px 5px 0px 0px',
@@ -136,30 +151,31 @@ $.noty.themes.mythdice_theme = {
         switch(this.options.type) {
             case 'alert':
             case 'notification':
-                this.$bar.css({
-                    backgroundColor: '#fff', color: '#000'
-                });
+                this.$bar.css({backgroundColor: '#fff', borderColor: '#ccc', color: '#444'});
                 break;
             case 'warning':
-                this.$bar.css({
-                    backgroundColor: '#fff', color: '#000'});
-                this.$buttons.css({borderTop: '1px solid #FFC237'});
+                this.$bar.css({backgroundColor: '#ffeaa8', borderColor: '#ffc237', color: '#826200'});
+                this.$buttons.css({borderTop: '1px solid #ffc237'});
                 break;
             case 'error':
-                this.$bar.css({backgroundColor: 'red', borderColor: 'darkred', color: '#FFF'});
+                this.$bar.css({backgroundColor: 'red', borderColor: 'darkred', color: '#fff'});
                 this.$message.css({fontWeight: 'bold'});
                 this.$buttons.css({borderTop: '1px solid darkred'});
                 break;
             case 'information':
-                this.$bar.css({backgroundColor: '#57B7E2', borderColor: '#0B90C4', color: '#FFF'});
-                this.$buttons.css({borderTop: '1px solid #0B90C4'});
+                this.$bar.css({backgroundColor: '#57b7e2', borderColor: '#0b90c4', color: '#fff'});
+                this.$buttons.css({borderTop: '1px solid #0b90c4'});
                 break;
             case 'success':
-                this.$bar.css({backgroundColor: 'lightgreen', borderColor: '#50C24E', color: 'darkgreen'});
-                this.$buttons.css({borderTop: '1px solid #50C24E'});
+                this.$bar.css({backgroundColor: 'lightgreen', borderColor: '#50c24e', color: 'darkgreen'});
+                this.$buttons.css({borderTop: '1px solid #50c24e'});
+                break;
+            case 'panda':
+                this.$bar.css({backgroundColor: '#c6c', borderColor: '#50c24e', color: 'darkgreen'});
+                this.$buttons.css({borderTop: '1px solid #50c24e'});
                 break;
             default:
-                this.$bar.css({backgroundColor: '#FFF', borderColor: '#CCC', color: '#444'});
+                this.$bar.css({backgroundColor: '#fff', borderColor: '#ccc', color: '#444'});
                 break;
         }
     },

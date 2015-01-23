@@ -1,11 +1,11 @@
 .clearfix:before,
 .clearfix:after {
-    content: " ";
-    display: table;
+   content: " ";
+   display: table;
 }
 
 .clearfix:after {
-    clear: both;
+   clear: both;
 }
 
 .hidden {display: none;}
@@ -28,3 +28,9 @@ html, body {
    height: 100%;
 }
 a.accordianExplanation {float: right;}
+
+.gainLosePay {
+   font-family: Impact, sans-serif;
+   font-size: 300%;
+   line-height: normal;
+}
