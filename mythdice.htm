@@ -277,14 +277,14 @@
             if (result >= effectiveno) {
                $('#woundRollResults').append('<span>'+drawThunderDie(result)+'</span>');
             } else {
-               $('#woundRollResults').append('<span class="wfailed" result="'+result+'">'+drawThunderDie(result)+'</span>');
+               $('#woundRollResults').append('<span class="wfailed" date-result="'+result+'">'+drawThunderDie(result)+'</span>');
                discard++;
             }
          }
          // Deal with wound numbers greater than 6
          if (effectiveno > 6) {
             console.log('wound no. is greater than 6!');
-            $('.wfailed[result="6"]').each(function(){
+            $('.wfailed[data-result="6"]').each(function(){
                console.log('processing a failed 6');
                if (effectiveno == 6) {
                   $(this).removeClass('wfailed');
@@ -297,7 +297,7 @@
          $('#wno').attr('weffectiveno',effectiveno);
 
 
-         $('#woundRollResults').append('<p id="wdiscard" discard="'+discard+'">discard '+discard+'</p>');
+         $('#woundRollResults').append('<p id="wdiscard" data-discard="'+discard+'">discard '+discard+'</p>');
          if (discard > 0) {
             showWRelentlessnessU(); showWBloodlust(); showWBloodlustQ(); showWBloodlustD(); showWBloodlustDQ();
          }
@@ -388,25 +388,25 @@
 
       $('#wusebloodlust').click(function(){
          payMight(2);
-         gainLightning($('#wdiscard').attr('discard'));
+         gainLightning($('#wdiscard').attr('data-discard'));
          hideWRelentlessnessU(); hideWBloodlust(); hideWBloodlustQ(); hideWBloodlustD(); hideWBloodlustDQ();
       });
 
       $('#wusebloodlustq').click(function(){
          payMight(1);
-         gainLightning($('#wdiscard').attr('discard'));
+         gainLightning($('#wdiscard').attr('data-discard'));
          hideWRelentlessnessU(); hideWBloodlust(); hideWBloodlustQ(); hideWBloodlustD(); hideWBloodlustDQ();
       });
 
       $('#wusebloodlustd').click(function(){
          payMight(5);
-         gainLightning($('#wdiscard').attr('discard')*2);
+         gainLightning($('#wdiscard').attr('data-discard')*2);
          hideWRelentlessnessU(); hideWBloodlust(); hideWBloodlustQ(); hideWBloodlustD(); hideWBloodlustDQ();
       });
 
       $('#wusebloodlustdq').click(function(){
          payMight(4);
-         gainLightning($('#wdiscard').attr('discard')*2);
+         gainLightning($('#wdiscard').attr('data-discard')*2);
          hideWRelentlessnessU(); hideWBloodlust(); hideWBloodlustQ(); hideWBloodlustD(); hideWBloodlustDQ();
       });
 
@@ -414,7 +414,7 @@
          // pony up
          payMight(3);
          // grab the number of rerolls we have to do
-         var numRerolls=$('#wdiscard').attr('discard'); console.log('rerolling: '+numRerolls);
+         var numRerolls=$('#wdiscard').attr('data-discard'); console.log('rerolling: '+numRerolls);
          // remove the old discard number
          $('#wdiscard').remove();
          // remove the rolls we're redoing
@@ -443,14 +443,14 @@
             if (result >= effectiveno) {
                $('#woundRollResults').append('<span>'+drawThunderDie(result)+'</span>');
             } else {
-               $('#woundRollResults').append('<span class="wfailed" result="'+result+'">'+drawThunderDie(result)+'</span>');
+               $('#woundRollResults').append('<span class="wfailed" data-result="'+result+'">'+drawThunderDie(result)+'</span>');
                discard++;
             }
          }
          // Deal with wound numbers greater than 6
          if (effectiveno > 6) {
             console.log('Relentlessness: wound no. is greater than 6!');
-            $('.wfailed[result="6"]').each(function(){
+            $('.wfailed[data-result="6"]').each(function(){
                console.log('processing a failed 6');
                if (effectiveno == 6) {console.log()
                   $(this).removeClass('wfailed');
@@ -464,7 +464,7 @@
          $('#wno').attr('weffectiveno',effectiveno);
 
 
-         $('#woundRollResults').append('<p id="wdiscard" discard="'+discard+'">discard '+discard+'</p>');
+         $('#woundRollResults').append('<p id="wdiscard" data-discard="'+discard+'">discard '+discard+'</p>');
          
          // since we can't use the same gift twice, remove relentlessness
          hideWRelentlessnessU();
